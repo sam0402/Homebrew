@@ -1,4 +1,4 @@
-MPD for macOS
+Music Player Daemon for macOS
 
 Install Homebrew and the required libraries for MPD with the following commands:
 
