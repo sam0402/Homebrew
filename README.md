@@ -6,6 +6,10 @@ Install Homebrew and the required libraries for MPD with the following commands:
 
 `brew install fmt libid3tag flac faad2 expat lame libmad libsndfile`
 
-Copy mpd to /usr/local/bin, and it will run in the background after login.
+Copy mpd to /Applications, then execute the commands below:
+
+`launchctl load ~/Library/LaunchAgents/com.mpd.start.plist`
+
+`launchctl start com.mpd.start.plist`
 
 Copy the mpd.conf file to either ~/.mpdconf or ~/.mpd/mpd.conf.
