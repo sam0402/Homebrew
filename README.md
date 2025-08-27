@@ -12,10 +12,4 @@ Copy mpd to /Applications, then execute the commands below:
 
   `launchctl start com.mpd.start.plist`
 
-or use root privileges:
-
-  `sudo cp com.mpd.start.plist /Library/LaunchDaemons/`
-
-  `sudo launchctl load /Library/LaunchDaemons/com.mpd.start.plist`
-
 Copy the mpd.conf file to either ~/.mpdconf or ~/.mpd/mpd.conf
