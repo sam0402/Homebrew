@@ -8,7 +8,7 @@ Install Homebrew and the required libraries for MPD with the following commands:
 
 Copy mpd to /Applications, then execute the commands below:
 
-  `cp ~/Downloads/com.mpd.start.plist ~/Library/LanguageModeling/`
+  `cp ~/Downloads/com.mpd.start.plist ~/Library/LaunchAgents/`
 
   `launchctl load ~/Library/LaunchAgents/com.mpd.start.plist`
 
