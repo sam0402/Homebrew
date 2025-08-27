@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.example.mpd</string>
+  <string>com.mpd.start</string>
 
   <key>ProgramArguments</key>
   <array>
