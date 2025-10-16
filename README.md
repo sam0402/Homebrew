@@ -2,7 +2,9 @@ Music Player Daemon for macOS
 
 Install Homebrew and the required libraries for MPD with the following commands:
 
-  `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+```bash
+curl -fsSL curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+```
 
   `brew install fmt libid3tag flac faad2 expat lame libmad libsndfile`
 
