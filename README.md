@@ -20,6 +20,8 @@ chmod +x /Applications/mpd
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/com.mpd.start.plist >~/Library/LaunchAgents/com.mpd.start.plist
 launchctl load ~/Library/LaunchAgents/com.mpd.start.plist
 launchctl start com.mpd.start.plist
+mkdir ~/.mpd
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-streamp3/mpd.conf >~/.mpd/mpd.conf
 ```
 
 Copy the mpd.conf file to either ~/.mpdconf or ~/.mpd/mpd.conf
