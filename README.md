@@ -17,7 +17,7 @@ chmod +x /Applications/mpd
 ```
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/com.mpd.start.plist >~/Library/LaunchAgents/
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/com.mpd.start.plist >~/Library/LaunchAgents/com.mpd.start.plist
 launchctl load ~/Library/LaunchAgents/com.mpd.start.plist
 launchctl start com.mpd.start.plist
 ```
