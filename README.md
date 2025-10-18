@@ -8,11 +8,7 @@ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | 
 
 ```bash
 brew install fmt libid3tag flac faad2 expat lame libmad libsndfile
-```
-
-Copy mpd to /Applications, then execute the commands below:
-
-```bash
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-streamp3/mpd >~/Applications/mpd
 chmod +x /Applications/mpd
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/com.mpd.start.plist >~/Library/LaunchAgents/com.mpd.start.plist
 launchctl load ~/Library/LaunchAgents/com.mpd.start.plist
