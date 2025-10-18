@@ -4,9 +4,6 @@ Install Homebrew and the required libraries for MPD with the following commands:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-```
-
-```bash
 brew install fmt libid3tag flac faad2 expat lame libmad libsndfile
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-streamp3/mpd >/Applications/mpd
 chmod +x /Applications/mpd
