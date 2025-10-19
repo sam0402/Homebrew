@@ -13,4 +13,4 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.blissify.start.plist
 launchctl enable gui/$(id -u)/com.blissify.start
 launchctl kickstart -k gui/$(id -u)/com.blissify.start
 ```
-From: `https://github.com/Polochon-street/blissify-rs`
+From: [Blissify-rs](https://github.com/Polochon-street/blissify-rs)
