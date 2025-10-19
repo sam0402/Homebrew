@@ -13,4 +13,18 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.blissify.start.plist
 launchctl enable gui/$(id -u)/com.blissify.start
 launchctl kickstart -k gui/$(id -u)/com.blissify.start
 ```
+
+To initialize and analyze your MPD library, use
+
+```bash
+blissify init -c ~/.mpd/blissify.conf
+```
+
+Update your library by running
+
+```bash
+blissify update -c ~/.mpd/blissify.conf
+```
+or update library with MPD Client.
+
 From: [Blissify-rs](https://github.com/Polochon-street/blissify-rs)
