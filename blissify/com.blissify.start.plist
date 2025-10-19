@@ -13,6 +13,8 @@
     <array>
         <string>/usr/bin/python3</string>
         <string>/usr/local/bin/blissify.py</string>
+        <string>-c</string>
+        <string>~/.mpd/blissify.conf</string>
     </array>
 
     <!-- 在登入時啟動 -->
