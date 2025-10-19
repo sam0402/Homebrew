@@ -27,7 +27,7 @@
 
 	<!-- 設定工作目錄，讓相對路徑生效 -->
 	<key>WorkingDirectory</key>
-	<string>/Users/HOME</string>
+	<string>HOME</string>
 
 	<!-- 設定 PATH，確保依賴的工具可被找到 -->
 	<key>EnvironmentVariables</key>
