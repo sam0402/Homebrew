@@ -14,7 +14,7 @@
         <string>/usr/bin/python3</string>
         <string>/usr/local/bin/blissify.py</string>
         <string>-c</string>
-        <string>~/.mpd/blissify.conf</string>
+		<string>.mpd/blissify.conf</string>
     </array>
 
     <!-- 在登入時啟動 -->
@@ -24,6 +24,23 @@
     <!-- 若程式結束則自動重啟 -->
     <key>KeepAlive</key>
     <true/>
+
+	<!-- 設定工作目錄，讓相對路徑生效 -->
+	<key>WorkingDirectory</key>
+	<string>/Users/HOME</string>
+
+	<!-- 記錄輸出與錯誤到檔案，方便除錯 -->
+	<key>StandardOutPath</key>
+	<string>/Users/sam/Library/Logs/com.blissify.start.log</string>
+	<key>StandardErrorPath</key>
+	<string>/Users/sam/Library/Logs/com.blissify.start.error.log</string>
+
+	<!-- 設定 PATH，確保依賴的工具可被找到 -->
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	</dict>
 
 </dict>
 </plist>
