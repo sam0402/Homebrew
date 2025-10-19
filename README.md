@@ -15,4 +15,6 @@ launchctl enable gui/$(id -u)/com.mpd.start
 launchctl kickstart -k gui/$(id -u)/com.mpd.start
 ```
 
+Modify the music_directory value in ~/.mpd/mpd.conf according to the location of your music files.
+
 Enjoy it!
