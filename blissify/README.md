@@ -9,7 +9,7 @@ sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/ma
 sudo chmod +x /usr/local/bin/blissify*
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/blissify.conf >~/.mpd/blissify.conf
 MDIR=`cat ~/.mpd/mpd.conf| grep "^music_directory" | cut -d'"' -f2`
-sed -i '' "s|~/Music|$MDIR|g" ~/.mpd/blissify.conf
+sed -i '' "s|~/Music|$MDIR|g;s|~/Music|$MDIR|g" ~/.mpd/blissify.conf
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/com.blissify.start.plist >~/Library/LaunchAgents/com.blissify.start.plist
 sed -i '' "s|HOME|$HOME|g" ~/Library/LaunchAgents/com.blissify.start.plist
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.blissify.start.plist
