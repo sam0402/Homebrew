@@ -4,6 +4,7 @@ Install Blissify with the following commands:
 
 ```bash
 brew install ffmpeg sqlite
+pip3 install python-mpd2
 sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/blissify -o /usr/local/bin/blissify
 sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/blissify.py -o /usr/local/bin/blissify.py
 sudo chmod +x /usr/local/bin/blissify*
