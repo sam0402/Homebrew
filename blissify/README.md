@@ -4,10 +4,10 @@ Install Blissify with the following commands:
 
 ```bash
 brew install ffmpeg sqlite
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/blissify >/usr/local/bin/blissify
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/blissify.py >/usr/local/bin/blissify.py
+sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/blissify -o /usr/local/bin/blissify
+sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/blissify.py -o /usr/local/bin/blissify.py
+sudo chmod +x /usr/local/bin/blissify*
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/blissify.conf >~/.mpd/blissify.conf
-chmod +x /usr/local/bin/blissify*
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/com.blissify.start.plist >~/Library/LaunchAgents/com.blissify.start.plist
 sed -i '' "s|HOME|$HOME|g" ~/Library/LaunchAgents/com.blissify.start.plist
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.blissify.start.plist
