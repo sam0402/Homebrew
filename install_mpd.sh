@@ -16,7 +16,7 @@ sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/ma
 sudo chmod +x /Applications/mpd
 
 echo "📁 Creating MPD configuration folder..."
-mkdir -p ~/.mpd
+mkdir -p ~/.mpd/playlists
 
 echo "⚙️ Downloading mpd.conf..."
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-streamp3/mpd.conf -o ~/.mpd/mpd.conf
