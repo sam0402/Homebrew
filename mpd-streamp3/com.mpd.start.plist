@@ -11,6 +11,9 @@
     <string>--no-daemon</string>
   </array>
 
+  <key>Nice</key>
+  <integer>-20</integer>
+
   <key>RunAtLoad</key>
   <true/>
 
