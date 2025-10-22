@@ -1,0 +1,33 @@
+#!/bin/bash
+set -e  # stop on error
+
+echo "🔧 Installing Homebrew (skipping if already installed)..."
+if ! command -v brew >/dev/null 2>&1; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    echo "✅ Homebrew already installed, skipping."
+fi
+
+echo "🍺 Installing MPD dependencies..."
+brew install fmt libid3tag flac faad2 expat lame libmad libsndfile
+
+echo "🎵 Installing MPD (streamp3 version)..."
+sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-streamp3/mpd -o /Applications/mpd
+sudo chmod +x /Applications/mpd
+
+echo "📁 Creating MPD configuration folder..."
+mkdir -p ~/.mpd
+
+echo "⚙️ Downloading mpd.conf..."
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-streamp3/mpd.conf -o ~/.mpd/mpd.conf
+
+echo "🧩 Installing LaunchAgent for auto-start..."
+mkdir -p ~/Library/LaunchAgents
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/com.mpd.start.plist -o ~/Library/LaunchAgents/com.mpd.start.plist
+
+echo "🚀 Starting MPD service..."
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.mpd.start.plist || true
+launchctl enable gui/$(id -u)/com.mpd.start || true
+launchctl kickstart -k gui/$(id -u)/com.mpd.start || true
+
+echo "✅ MPD installation complete!"
