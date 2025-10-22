@@ -9,7 +9,6 @@ sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/ma
 sudo chmod +x /usr/local/bin/blissify*
 
 # Download blissify configuration
-mkdir -p ~/.mpd
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/blissify.conf -o ~/.mpd/blissify.conf
 
 # Get MPD music directory from mpd.conf
