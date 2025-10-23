@@ -13,7 +13,7 @@ To enable the httpd output, remove the comment marks (#) from lines 263 to 275 i
 Unstall MPD and Homebrew with the following command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/uninstall_mpd.sh | bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/uninstall_mpd.sh)"
 ```
 
 Enjoy it!
