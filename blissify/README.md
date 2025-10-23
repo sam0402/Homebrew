@@ -1,6 +1,6 @@
 Blissify - analyze an MPD library and make smart playlist
 
-Install Blissify with the following commands:
+Install Blissify with the following command:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/install_blissify.sh)"
@@ -18,5 +18,11 @@ Update your library by running
 blissify update -c ~/.mpd/blissify.conf
 ```
 or update library with MPD Client.
+
+Uninstall Blissify with the following command:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/uninstall_blissify.sh)"
+```
 
 From: [Blissify-rs](https://github.com/Polochon-street/blissify-rs)
