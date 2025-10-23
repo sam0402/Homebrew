@@ -1,0 +1,204 @@
+--- a/src/thread/Util.hxx	2025-03-11 18:05:29.000000000 +0800
++++ b/src/thread/Util.hxx	2025-03-18 22:13:14.000000000 +0800
+@@ -16,6 +16,6 @@
+  * Throws std::system_error on error.
+  */
+ void
+-SetThreadRealtime();
++SetThreadRealtime(int priority = 85);
+ 
+ #endif
+--- a/src/thread/Util.cxx	2025-03-18 21:57:32.499345163 +0800
++++ a/src/thread/Util.cxx	2025-03-18 21:58:28.000000000 +0800
+@@ -71,11 +71,11 @@
+ }
+ 
+ void
+-SetThreadRealtime()
++SetThreadRealtime(int priority)
+ {
+ #ifdef __linux__
+ 	struct sched_param sched_param;
+-	sched_param.sched_priority = 40;
++	sched_param.sched_priority = priority;
+ 
+ 	int policy = SCHED_FIFO;
+ #ifdef SCHED_RESET_ON_FORK
+--- a/src/event/Thread.cxx	2025-03-11 18:05:29.000000000 +0800
++++ b/src/event/Thread.cxx	2025-03-18 22:08:06.000000000 +0800
+@@ -50,7 +50,7 @@
+ 		SetThreadTimerSlack(std::chrono::microseconds(10));
+ 
+ 		try {
+-			SetThreadRealtime();
++			SetThreadRealtime(93);
+ 		} catch (...) {
+ 			FmtInfo(event_domain,
+ 				"RTIOThread could not get realtime scheduling, continuing anyway: {}",
+--- a/meson.build	2025-07-05 08:55:40.015570105 +0800
++++ b/meson.build	2025-07-05 12:22:49.000000000 +0800
+@@ -348,12 +348,12 @@
+   'src/command/PositionArg.cxx',
+   'src/command/AllCommands.cxx',
+   'src/command/QueueCommands.cxx',
+-  'src/command/TagCommands.cxx',
++  # 'src/command/TagCommands.cxx',
+   'src/command/PlayerCommands.cxx',
+   'src/command/PlaylistCommands.cxx',
+   'src/command/FileCommands.cxx',
+   'src/command/OutputCommands.cxx',
+-  'src/command/MessageCommands.cxx',
++  # 'src/command/MessageCommands.cxx',
+   'src/command/ClientCommands.cxx',
+   'src/command/PartitionCommands.cxx',
+   'src/command/OtherCommands.cxx',
+@@ -376,8 +376,8 @@
+   'src/client/Process.cxx',
+   'src/client/Read.cxx',
+   'src/client/Write.cxx',
+-  'src/client/Message.cxx',
+-  'src/client/Subscribe.cxx',
++  # 'src/client/Message.cxx',
++  # 'src/client/Subscribe.cxx',
+   'src/client/File.cxx',
+   'src/client/Response.cxx',
+   'src/client/ThreadBackgroundCommand.cxx',
+--- a/src/command/AllCommands.cxx	2025-01-30 00:11:53.000000000 +0800
++++ b/src/command/AllCommands.cxx	2025-07-05 22:00:43.000000000 +0800
+@@ -87,13 +87,13 @@
+ static constexpr struct command commands[] = {
+ 	{ "add", PERMISSION_ADD, 1, 2, handle_add },
+ 	{ "addid", PERMISSION_ADD, 1, 2, handle_addid },
+-	{ "addtagid", PERMISSION_ADD, 3, 3, handle_addtagid },
++	// { "addtagid", PERMISSION_ADD, 3, 3, handle_addtagid },
+ 	{ "albumart", PERMISSION_READ, 2, 2, handle_album_art },
+ 	{ "binarylimit", PERMISSION_NONE, 1, 1, handle_binary_limit },
+-	{ "channels", PERMISSION_READ, 0, 0, handle_channels },
++	// { "channels", PERMISSION_READ, 0, 0, handle_channels },
+ 	{ "clear", PERMISSION_PLAYER, 0, 0, handle_clear },
+ 	{ "clearerror", PERMISSION_PLAYER, 0, 0, handle_clearerror },
+-	{ "cleartagid", PERMISSION_ADD, 1, 2, handle_cleartagid },
++	// { "cleartagid", PERMISSION_ADD, 1, 2, handle_cleartagid },
+ 	{ "close", PERMISSION_NONE, -1, -1, handle_close },
+ 	{ "commands", PERMISSION_NONE, 0, 0, handle_commands },
+ 	{ "config", PERMISSION_ADMIN, 0, 0, handle_config },
+@@ -101,7 +101,7 @@
+ #ifdef ENABLE_DATABASE
+ 	{ "count", PERMISSION_READ, 1, -1, handle_count },
+ #endif
+-	{ "crossfade", PERMISSION_PLAYER, 1, 1, handle_crossfade },
++	// { "crossfade", PERMISSION_PLAYER, 1, 1, handle_crossfade },
+ 	{ "currentsong", PERMISSION_READ, 0, 0, handle_currentsong },
+ 	{ "decoders", PERMISSION_READ, 0, 0, handle_decoders },
+ 	{ "delete", PERMISSION_PLAYER, 1, 1, handle_delete },
+@@ -126,7 +126,7 @@
+ #endif
+ 	{ "listfiles", PERMISSION_READ, 0, 1, handle_listfiles },
+ #ifdef ENABLE_DATABASE
+-	{ "listmounts", PERMISSION_READ, 0, 0, handle_listmounts },
++	// { "listmounts", PERMISSION_READ, 0, 0, handle_listmounts },
+ #endif
+ #ifdef ENABLE_NEIGHBOR_PLUGINS
+ 	{ "listneighbors", PERMISSION_READ, 0, 0, handle_listneighbors },
+@@ -137,10 +137,10 @@
+ 	{ "listplaylists", PERMISSION_READ, 0, 0, handle_listplaylists },
+ 	{ "load", PERMISSION_ADD, 1, 3, handle_load },
+ 	{ "lsinfo", PERMISSION_READ, 0, 1, handle_lsinfo },
+-	{ "mixrampdb", PERMISSION_PLAYER, 1, 1, handle_mixrampdb },
+-	{ "mixrampdelay", PERMISSION_PLAYER, 1, 1, handle_mixrampdelay },
++	// { "mixrampdb", PERMISSION_PLAYER, 1, 1, handle_mixrampdb },
++	// { "mixrampdelay", PERMISSION_PLAYER, 1, 1, handle_mixrampdelay },
+ #ifdef ENABLE_DATABASE
+-	{ "mount", PERMISSION_ADMIN, 2, 2, handle_mount },
++	// { "mount", PERMISSION_ADMIN, 2, 2, handle_mount },
+ #endif
+ 	{ "move", PERMISSION_PLAYER, 2, 2, handle_move },
+ 	{ "moveid", PERMISSION_PLAYER, 2, 2, handle_moveid },
+@@ -173,7 +173,7 @@
+ 	{ "random", PERMISSION_PLAYER, 1, 1, handle_random },
+ 	{ "rangeid", PERMISSION_ADD, 2, 2, handle_rangeid },
+ 	{ "readcomments", PERMISSION_READ, 1, 1, handle_read_comments },
+-	{ "readmessages", PERMISSION_READ, 0, 0, handle_read_messages },
++	// { "readmessages", PERMISSION_READ, 0, 0, handle_read_messages },
+ 	{ "readpicture", PERMISSION_READ, 2, 2, handle_read_picture },
+ 	{ "rename", PERMISSION_CONTROL, 2, 2, handle_rename },
+ 	{ "repeat", PERMISSION_PLAYER, 1, 1, handle_repeat },
+@@ -192,7 +192,7 @@
+ 	{ "seek", PERMISSION_PLAYER, 2, 2, handle_seek },
+ 	{ "seekcur", PERMISSION_PLAYER, 1, 1, handle_seekcur },
+ 	{ "seekid", PERMISSION_PLAYER, 2, 2, handle_seekid },
+-	{ "sendmessage", PERMISSION_CONTROL, 2, 2, handle_send_message },
++	// { "sendmessage", PERMISSION_CONTROL, 2, 2, handle_send_message },
+ 	{ "setvol", PERMISSION_PLAYER, 1, 1, handle_setvol },
+ 	{ "shuffle", PERMISSION_PLAYER, 0, 1, handle_shuffle },
+ 	{ "single", PERMISSION_PLAYER, 1, 1, handle_single },
+@@ -202,15 +202,15 @@
+ 	{ "sticker", PERMISSION_ADMIN, 3, -1, handle_sticker },
+ #endif
+ 	{ "stop", PERMISSION_PLAYER, 0, 0, handle_stop },
+-	{ "subscribe", PERMISSION_READ, 1, 1, handle_subscribe },
++	// { "subscribe", PERMISSION_READ, 1, 1, handle_subscribe },
+ 	{ "swap", PERMISSION_PLAYER, 2, 2, handle_swap },
+ 	{ "swapid", PERMISSION_PLAYER, 2, 2, handle_swapid },
+ 	{ "tagtypes", PERMISSION_NONE, 0, -1, handle_tagtypes },
+ 	{ "toggleoutput", PERMISSION_ADMIN, 1, 1, handle_toggleoutput },
+ #ifdef ENABLE_DATABASE
+-	{ "unmount", PERMISSION_ADMIN, 1, 1, handle_unmount },
++	// { "unmount", PERMISSION_ADMIN, 1, 1, handle_unmount },
+ #endif
+-	{ "unsubscribe", PERMISSION_READ, 1, 1, handle_unsubscribe },
++	// { "unsubscribe", PERMISSION_READ, 1, 1, handle_unsubscribe },
+ 	{ "update", PERMISSION_CONTROL, 0, 1, handle_update },
+ 	{ "urlhandlers", PERMISSION_READ, 0, 0, handle_urlhandlers },
+ 	{ "volume", PERMISSION_PLAYER, 1, 1, handle_volume },
+--- a/src/output/plugins/httpd/HttpdInternal.hxx	2025-01-30 00:11:53.000000000 +0800
++++ b/src/output/plugins/httpd/HttpdInternal.hxx	2025-09-11 21:43:43.000000000 +0800
+@@ -149,6 +149,12 @@
+ 	 */
+ 	unsigned clients_max;
+ 
++	/**
++	 * True if the configuration has specified a fixed audio format,
++	 * in which case we must not override it with dynamic selection.
++	 */
++	bool has_config_audio_format = false;
++
+ public:
+ 	HttpdOutput(EventLoop &_loop, const ConfigBlock &block);
+ 
+--- a/src/output/plugins/httpd/HttpdOutputPlugin.cxx	2025-01-30 00:11:53.000000000 +0800
++++ b/src/output/plugins/httpd/HttpdOutputPlugin.cxx	2025-09-11 21:33:41.000000000 +0800
+@@ -60,6 +60,11 @@
+ 	content_type = prepared_encoder->GetMimeType();
+ 	if (content_type == nullptr)
+ 		content_type = "application/octet-stream";
++
++	/* detect whether a fixed audio format was specified in config */
++	/* Only respect legacy "format" as the fixed format key. */
++	if (const char *const cfg_format = block.GetBlockValue("format", (const char *)nullptr); cfg_format != nullptr)
++		has_config_audio_format = true;
+ }
+ 
+ inline void
+@@ -188,6 +193,21 @@
+ 
+ 	const std::scoped_lock<Mutex> protect(mutex);
+ 
++	/* dynamically choose encoder output format based on source sample rate */
++	if (!has_config_audio_format) {
++		if (audio_format.sample_rate != 0) {
++			if (audio_format.sample_rate % 44100 == 0) {
++				audio_format.sample_rate = 44100;
++				audio_format.channels = 2;
++				audio_format.format = SampleFormat::S16;
++			} else if (audio_format.sample_rate % 48000 == 0) {
++				audio_format.sample_rate = 48000;
++				audio_format.channels = 2;
++				audio_format.format = SampleFormat::S16;
++			}
++		}
++	}
++
+ 	OpenEncoder(audio_format);
+ 
+ 	/* initialize other attributes */
