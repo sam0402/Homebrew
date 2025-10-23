@@ -3,7 +3,7 @@ Blissify - analyze an MPD library and make smart playlist
 Install Blissify with the following commands:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/install_blissify.sh | bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/install_blissify.sh)"
 ```
 
 To initialize and analyze your MPD library, use
