@@ -27,10 +27,17 @@ if [ -f "/Applications/mpd" ]; then
 fi
 
 # --- Optional: uninstall Homebrew packages ---
-read -p "Do you also want to uninstall Homebrew dependencies (flac, lame, fmt, etc)? [y/N]: " ans
-if [[ "$ans" == "y" || "$ans" == "Y" ]]; then
-    echo "Removing Homebrew dependencies..."
-    brew uninstall --ignore-dependencies fmt libid3tag flac faad2 expat lame libmad libsndfile 2>/dev/null || true
+if [ -n "$ZSH_VERSION" ]; then
+    read "ans?Do you also want to uninstall Homebrew? [y/N]: "
+else
+    read -p "Do you also want to uninstall Homebrew? [y/N]: " ans
+fi
+
+if [[ "$ans" =~ ^[Yy]$ ]]; then
+    echo "Uninstalling Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+else
+    echo "Skipping Homebrew uninstallation."
 fi
 
 echo "✅ MPD and its service have been removed successfully."
