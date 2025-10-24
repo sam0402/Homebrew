@@ -12,14 +12,14 @@ echo "🍺 Installing MPD dependencies..."
 brew install fmt libid3tag flac faad2 expat lame libmad libsndfile
 
 echo "🎵 Installing MPD (streamp3 version)..."
-sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-streamp3/mpd-0.23.17 -o /Applications/mpd
+sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-0.23.17 -o /Applications/mpd
 sudo chmod +x /Applications/mpd
 
 echo "📁 Creating MPD configuration folder..."
 mkdir -p ~/.mpd/playlists
 
 echo "⚙️ Downloading mpd.conf..."
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-streamp3/mpd.conf -o ~/.mpd/mpd.conf
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd.conf -o ~/.mpd/mpd.conf
 
 echo "🧩 Installing LaunchAgent for auto-start..."
 mkdir -p ~/Library/LaunchAgents
