@@ -9,6 +9,7 @@ sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/ma
 sudo chmod +x /usr/local/bin/blissify*
 
 # Download blissify configuration
+mkdir -p ~/.mpd
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/blissify/blissify.conf -o ~/.mpd/blissify.conf
 
 # Get MPD music directory from mpd.conf
@@ -27,3 +28,11 @@ launchctl enable gui/$(id -u)/com.blissify.start
 launchctl kickstart -k gui/$(id -u)/com.blissify.start
 
 echo "✅ Blissify installation and setup complete."
+
+read -p "Do you want to initialize and analyze your MPD library? [Y/n]: " ans
+if [[ "$ans" =~ ^[Yy]$ ]]; then
+    echo "Running blissify update..."
+    blissify update -c ~/.mpd/blissify.conf || echo "⚠️ Failed to run blissify update."
+else
+    echo "Skipped blissify initialization"
+fi
