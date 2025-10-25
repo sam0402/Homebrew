@@ -29,7 +29,13 @@ launchctl kickstart -k gui/$(id -u)/com.blissify.start
 
 echo "✅ Blissify installation and setup complete."
 
-read -p "Do you want to initialize and analyze your MPD library? [Y/n]: " ans
+if [ -n "$ZSH_VERSION" ]; then
+    read "ans?Do you want to initialize and analyze your MPD library? [Y/n]: "
+else
+    read -p "Do you want to initialize and analyze your MPD library? [Y/n]: " ans
+fi
+
+ans=${ans:-Y}
 if [[ "$ans" =~ ^[Yy]$ ]]; then
     echo "Running blissify update..."
     blissify update -c ~/.mpd/blissify.conf || echo "⚠️ Failed to run blissify update."
