@@ -9,15 +9,10 @@ Install Blissify with the following command:
 To initialize and analyze your MPD library, use
 
 ```bash
-blissify init -c ~/.mpd/blissify.conf
-```
-
-Update your library by running
-
-```bash
 blissify update -c ~/.mpd/blissify.conf
 ```
-or update library with MPD Client.
+
+Update the library using the sam command or the MPD client’s update command.
 
 Uninstall Blissify with the following command:
 
