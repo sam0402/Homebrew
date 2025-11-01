@@ -17,13 +17,22 @@ fi
 
 # --- Homebrew dependencies ---
 echo "📦 Installing dependencies via Homebrew..."
-brew install libcdio-paranoia cd-discid glyr flac ffmpeg
+brew install libcdio-paranoia cd-discid glyr flac
 brew install --cask kid3
 
 # --- Python libraries ---
 echo "🐍 Upgrading pip and installing Python modules..."
-# python3 -m pip install --upgrade pip
-pip3 install beautifulsoup4 soupsieve lxml --break-system-packages
+PYTHON_PATH=$(which python3)
+echo "🧠 Detected Python path: $PYTHON_PATH"
+
+if [[ "$PYTHON_PATH" == "/usr/bin/python3" ]]; then
+  echo "🍎 macOS system Python detected."
+  # python3 -m pip install --upgrade pip
+  pip3 install beautifulsoup4 soupsieve lxml
+else
+  echo "🍺 Homebrew Python detected."
+  pip3 install beautifulsoup4 soupsieve lxml --break-system-packages
+fi
 
 # --- Install helper scripts ---
 echo "🧰 Installing abcde and related tools..."
