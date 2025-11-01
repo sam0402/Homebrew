@@ -32,10 +32,10 @@ echo "🧠 Detected Python path: $PYTHON_PATH"
 if [[ "$PYTHON_PATH" == "/usr/bin/python3" ]]; then
   echo "🍎 macOS system Python detected."
   # python3 -m pip install --upgrade pip
-  pip3 install beautifulsoup4 soupsieve lxml
+  pip3 install beautifulsoup4 soupsieve lxml requests
 else
   echo "🍺 Homebrew Python detected."
-  pip3 install beautifulsoup4 soupsieve lxml --break-system-packages
+  pip3 install beautifulsoup4 soupsieve lxml requests --break-system-packages
 fi
 
 # --- Install helper scripts ---
