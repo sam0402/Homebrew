@@ -4098,8 +4098,7 @@ elif [ X"$UNAME" = "XDarwin" ] ; then
 	NEEDDISKUTIL=y
 	CDROMREADERSYNTAX=cddafs
 	# We won't find the eject program in OSX, and doing checkexec will fail further below...
-	alias eject="drutil eject"
-	EJECT=eject
+	EJECT="drutil eject"
 elif [ X"$UNAME" = "XOpenBSD" ] ; then
 	HTTPGET=ftp
 	MD5SUM=md5
