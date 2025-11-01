@@ -16,8 +16,8 @@ brew install --cask kid3
 
 # --- Python libraries ---
 echo "🐍 Upgrading pip and installing Python modules..."
-#python3 -m pip install --upgrade pip
-pip3 install beautifulsoup4 soupsieve lxml --break-system-packages
+# python3 -m pip install --upgrade pip
+pip3 install beautifulsoup4 soupsieve lxml
 
 # --- Install helper scripts ---
 echo "🧰 Installing abcde and related tools..."
@@ -38,6 +38,13 @@ sudo curl -fsSL https://raw.githubusercontent.com/sam0402/ArchQ/refs/heads/main/
 echo "🔐 Setting permissions..."
 sudo chmod +x /usr/local/bin/*cd*
 
+if [ -f $HOME/.mpd/mpd.conf ]; then
+    # Get MPD music directory from mpd.conf
+    MDIR=$(grep "^music_directory" $HOME/.mpd/mpd.conf | cut -d'"' -f2)
+
+    # Replace HOME and default music path in configuration
+    sed -i '' "s|^OUTPUTDIR=.*|OUTPUTDIR=\"$MDIR\"|" $HOME/.abcde.conf
+fi
 echo
 echo "✅ Installation complete!"
 echo
