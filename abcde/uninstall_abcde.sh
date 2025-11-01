@@ -34,6 +34,7 @@ read -r -p "❓ Do you also want to uninstall Homebrew dependencies (libcdio, gl
 if [[ "$yn" =~ ^[Yy]$ ]]; then
   echo "🍺 Removing Homebrew packages..."
   brew uninstall libcdio libcdio-paranoia cd-discid glyr kid3 || true
+  sudo rm -rf /Applications/kid3.app
 else
   echo "➡️  Keeping Homebrew dependencies."
 fi
