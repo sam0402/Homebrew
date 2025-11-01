@@ -14,5 +14,6 @@ Uninstall abcde and Homebrew with the following command:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/abcde/uninstall_abcde.sh)"
 ```
 
+Recommended terminal application: ``https://iterm2.com/downloads.html``
 
 Enjoy it!
