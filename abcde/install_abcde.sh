@@ -11,7 +11,7 @@ echo
 
 # --- Homebrew dependencies ---
 echo "📦 Installing dependencies via Homebrew..."
-brew install libcdio libcdio-paranoia cd-discid glyr
+brew install libcdio libcdio-paranoia cd-discid glyr flac
 brew install --cask kid3
 
 # --- Python libraries ---
