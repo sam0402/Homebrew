@@ -16,7 +16,7 @@ brew install --cask kid3
 
 # --- Python libraries ---
 echo "🐍 Upgrading pip and installing Python modules..."
-python3 -m pip install --upgrade pip
+#python3 -m pip install --upgrade pip
 pip3 install beautifulsoup4 soupsieve lxml --break-system-packages
 
 # --- Install helper scripts ---
