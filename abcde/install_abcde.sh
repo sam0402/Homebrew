@@ -8,6 +8,12 @@ set -e  # stop on error
 
 echo "🎵 Installing abcde CD ripping environment for macOS..."
 echo
+echo "🔧 Installing Homebrew (skipping if already installed)..."
+if ! command -v brew >/dev/null 2>&1; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    echo "✅ Homebrew already installed, skipping."
+fi
 
 # --- Homebrew dependencies ---
 echo "📦 Installing dependencies via Homebrew..."
