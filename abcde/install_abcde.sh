@@ -49,7 +49,7 @@ curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/ab
   -o "$HOME/.abcde.conf"
 sudo curl -fsSL https://raw.githubusercontent.com/sam0402/ArchQ/refs/heads/main/pkg/qobuz2cddb.py \
   -o /usr/local/bin/qobuz2cddb.py
-sudo ln -s /usr/bin/drutil /usr/local/bin/eject 
+sudo ln -sf /usr/bin/drutil /usr/local/bin/eject 
 
 # --- Set permissions ---
 echo "🔐 Setting permissions..."
