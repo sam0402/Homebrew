@@ -202,3 +202,26 @@
  	OpenEncoder(audio_format);
  
  	/* initialize other attributes */
+--- a/src/decoder/plugins/SndfileDecoderPlugin.cxx	2025-01-30 00:11:53
++++ b/src/decoder/plugins/SndfileDecoderPlugin.cxx	2025-11-07 21:27:14
+@@ -312,6 +312,7 @@
+ 	"htk", /* HMM Tool Kit */
+ 	"caf", /* Apple */
+ 	"sd2", /* Sound Designer II */
++	"flac", "ogg",
+ 
+ 	/* libsndfile also supports FLAC and Ogg Vorbis, but only by
+ 	   linking with libFLAC and libvorbis - we can do better, we
+@@ -325,7 +326,11 @@
+ 	"audio/aiff",
+ 	"audio/x-wav",
+ 	"audio/x-aiff",
+-
++	"audio/flac",
++	"audio/x-flac",
++	"audio/ogg",
++	"audio/x-flac+ogg",
++	"audio/x-ogg",
+ 	/* what are the MIME types of the other supported formats? */
+ 
+ 	nullptr
