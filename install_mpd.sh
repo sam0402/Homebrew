@@ -10,6 +10,9 @@ fi
 
 echo "🍺 Installing MPD dependencies..."
 brew install fmt libid3tag flac faad2 expat lame libmad libsndfile
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/flac-143.tar.bz2 | tar jxvf - -C /opt/homebrew/Cellar
+brew unlink flac
+brew link flac@1.4.3
 
 echo "🎵 Installing MPD (streamp3 version)..."
 sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-0.23.17 -o /Applications/mpd
