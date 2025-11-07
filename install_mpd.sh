@@ -13,9 +13,8 @@ brew install fmt libid3tag faad2 expat lame libmad libsndfile
 brew uninstall --ignore-dependencies flac
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/flac-143.tar.bz2 | tar jxvf - -C /opt/homebrew/Cellar
 brew link flac@1.4.3
-cd /opt/homebrew/opt/
-ln -s flac@1.4.3 flac
-cd -
+ln -s /opt/homebrew/opt/flac@1.4.3 /opt/homebrew/opt/flac
+ln -s /opt/homebrew/opt/flac@1.4.3/lib/libFLAC.12.dylib /opt/homebrew/opt/flac@1.4.3/lib/libFLAC.14.dylib
 
 echo "🎵 Installing MPD ..."
 sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-0.23.17 -o /Applications/mpd
