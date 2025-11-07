@@ -18,8 +18,10 @@ sudo chmod +x /Applications/mpd
 echo "📁 Creating MPD configuration folder..."
 mkdir -p ~/.mpd/playlists
 
-echo "⚙️ Downloading mpd.conf..."
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd.conf -o ~/.mpd/mpd.conf
+if ! [ -f ~/.mpd/mpd.conf ]; then
+    echo "⚙️ Downloading mpd.conf..."
+    curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-streamp3/mpd.conf -o ~/.mpd/mpd.conf
+fi
 
 echo "🧩 Installing LaunchAgent for auto-start..."
 mkdir -p ~/Library/LaunchAgents
