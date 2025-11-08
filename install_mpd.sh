@@ -13,7 +13,7 @@ if [[ "$choice" == "1" ]]; then
     echo "➡️ Installing MPD 0.23.17..."
     version="mpd-0.23.17"
 elif [[ "$choice" == "2" ]]; then
-    echo "➡️ Installing MPD 0.23.17 with custom FLAC 1.4.3..."
+    echo "➡️ Installing MPD-flac 0.23.17..."
     version="mpd-flac-0.23.17"
 else
     echo "➡️ Installing MPD 0.23.17..."
