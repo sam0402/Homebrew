@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e  # stop on error
 
+x
+
 echo "🔧 Installing Homebrew (skipping if already installed)..."
 if ! command -v brew >/dev/null 2>&1; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -17,7 +19,7 @@ ln -s /opt/homebrew/opt/flac@1.4.3 /opt/homebrew/opt/flac
 ln -s /opt/homebrew/opt/flac@1.4.3/lib/libFLAC.12.dylib /opt/homebrew/opt/flac@1.4.3/lib/libFLAC.14.dylib
 
 echo "🎵 Installing MPD ..."
-sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-0.23.17 -o /Applications/mpd
+sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/$version -o /Applications/mpd
 sudo chmod +x /Applications/mpd
 
 echo "📁 Creating MPD configuration folder..."
