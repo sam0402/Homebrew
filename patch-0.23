@@ -230,21 +230,3 @@
  
  	/* what are the MIME types of the other supported formats? */
  
---- a/src/decoder/plugins/Mpg123DecoderPlugin.cxx	2025-01-30 00:11:53
-+++ b/src/decoder/plugins/Mpg123DecoderPlugin.cxx	2025-11-10 12:54:17
-@@ -316,7 +316,14 @@
- 	nullptr
- };
- 
-+static const char *const mpg123_mime_types[] = {
-+	"audio/mpeg", 
-+	nullptr
-+};
-+
- constexpr DecoderPlugin mpg123_decoder_plugin =
--	DecoderPlugin("mpg123", mpd_mpg123_file_decode, mpd_mpg123_scan_file)
-+	DecoderPlugin("mpg123",
-+			mpd_mpg123_file_decode, mpd_mpg123_scan_file,
-+			mpd_mpg123_stream_decode, mpd_mpg123_scan_stream)
- 	.WithInit(mpd_mpg123_init, mpd_mpg123_finish)
- 	.WithSuffixes(mpg123_suffixes);
