@@ -4,8 +4,8 @@ set -e  # stop on error
 echo "🎵 MPD Installation"
 echo "============================================="
 echo "Select installation version:"
-echo "1) MPD 0.23.17 (wav, aiff, w64; Radio: aac, mp3)"
-echo "2) MPD +FLAC 0.23.17 (+flac; Radio: +ogg)"
+echo "1) MPD 0.23.17 (wav, aiff, w64, flac; Radio: aac)"
+echo "2) MPD +FLAC 0.23.17 (Radio: +mp3, ogg)"
 read -p "Enter choice [1-2]: " choice
 
 version="mpd-0.23.17"
