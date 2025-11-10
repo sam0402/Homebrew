@@ -28,7 +28,7 @@ else
 fi
 
 echo "🍺 Installing MPD dependencies..."
-brew install fmt libid3tag faad2 expat mpg123 libsndfile flac
+brew install fmt libid3tag faad2 expat mad libsndfile flac
 # brew uninstall --ignore-dependencies flac
 # curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/flac-143.tar.bz2 | tar jxvf - -C /opt/homebrew/Cellar
 # brew link flac@1.4.3
