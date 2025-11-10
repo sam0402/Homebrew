@@ -232,25 +232,13 @@
  
 --- a/src/decoder/plugins/Mpg123DecoderPlugin.cxx	2025-01-30 00:11:53
 +++ b/src/decoder/plugins/Mpg123DecoderPlugin.cxx	2025-11-10 12:54:17
-@@ -313,10 +313,18 @@
- 
- static const char *const mpg123_suffixes[] = {
- 	"mp3",
-+	nullptr
-+};
-+
-+static const char *const mpg123_mime_types[] = {
-+	"audio/mpeg", 
- 	nullptr
+@@ -317,6 +317,8 @@
  };
  
  constexpr DecoderPlugin mpg123_decoder_plugin =
 -	DecoderPlugin("mpg123", mpd_mpg123_file_decode, mpd_mpg123_scan_file)
 +	DecoderPlugin("mpg123",
-+		      mpd_mpg123_stream_decode, mpd_mpg123_scan_stream,
-+		      mpd_mpg123_file_decode, mpd_mpg123_scan_file)
++		mpd_mpg123_stream_decode, mpd_mpg123_scan_stream,
++		mpd_mpg123_file_decode, mpd_mpg123_scan_file)
  	.WithInit(mpd_mpg123_init, mpd_mpg123_finish)
--	.WithSuffixes(mpg123_suffixes);
-+	.WithSuffixes(mpg123_suffixes)
-+	.WithMimeTypes(mpg123_mime_types);
-\ No newline at end of file
+ 	.WithSuffixes(mpg123_suffixes);
