@@ -204,23 +204,48 @@
  	/* initialize other attributes */
 --- a/src/decoder/plugins/SndfileDecoderPlugin.cxx	2025-01-30 00:11:53
 +++ b/src/decoder/plugins/SndfileDecoderPlugin.cxx	2025-11-07 21:27:14
-@@ -312,6 +312,7 @@
+@@ -312,6 +312,8 @@
  	"htk", /* HMM Tool Kit */
  	"caf", /* Apple */
  	"sd2", /* Sound Designer II */
-+	"flac", "ogg",
++	"flac", "ogg", "oga",
++	"mp3",
  
  	/* libsndfile also supports FLAC and Ogg Vorbis, but only by
  	   linking with libFLAC and libvorbis - we can do better, we
-@@ -325,6 +326,11 @@
+@@ -325,6 +327,16 @@
  	"audio/aiff",
  	"audio/x-wav",
  	"audio/x-aiff",
++	"application/flac",
++	"application/x-flac",
 +	"audio/flac",
 +	"audio/x-flac",
++	"application/ogg",
++	"application/x-ogg",
 +	"audio/ogg",
 +	"audio/x-flac+ogg",
 +	"audio/x-ogg",
++	"audio/mpeg",
  
  	/* what are the MIME types of the other supported formats? */
  
+--- a/src/decoder/plugins/Mpg123DecoderPlugin.cxx	2025-01-30 00:11:53
++++ b/src/decoder/plugins/Mpg123DecoderPlugin.cxx	2025-11-10 12:54:17
+@@ -313,6 +313,11 @@
+ 
+ static const char *const mpg123_suffixes[] = {
+ 	"mp3",
++	nullptr
++};
++
++static const char *const mpg123_mime_types[] = {
++	"audio/mpeg", 
+ 	nullptr
+ };
+ 
+@@ -320,3 +325,4 @@
+ 	DecoderPlugin("mpg123", mpd_mpg123_file_decode, mpd_mpg123_scan_file)
+ 	.WithInit(mpd_mpg123_init, mpd_mpg123_finish)
+ 	.WithSuffixes(mpg123_suffixes);
++	.WithMimeTypes(mpg123_mime_types);
