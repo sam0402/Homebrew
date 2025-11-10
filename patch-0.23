@@ -244,7 +244,7 @@
 +};
 +
 +constexpr DecoderPlugin mpg123_decoder_plugin =
-+	DecoderPlugin("mpg123", mpd_mpg123_file_decode, mpd_mpg123_scan_file, mpd_mpg123_scan_stream)
++	DecoderPlugin("mpg123", mpd_mpg123_file_decode, mpd_mpg123_scan_stream)
  	.WithInit(mpd_mpg123_init, mpd_mpg123_finish)
 -	.WithSuffixes(mpg123_suffixes);
 +	.WithSuffixes(mpg123_suffixes)
