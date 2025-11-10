@@ -13,7 +13,7 @@ if [[ "$choice" == "1" ]]; then
     echo "➡️ Installing MPD 0.23.17..."
     version="mpd-0.23.17"
 elif [[ "$choice" == "2" ]]; then
-    echo "➡️ Installing MPD-flac 0.23.17..."
+    echo "➡️ Installing MPD-flac 0.23.17 ..."
     version="mpd-flac-0.23.17"
 else
     echo "➡️ Installing MPD 0.23.17..."
@@ -28,12 +28,12 @@ else
 fi
 
 echo "🍺 Installing MPD dependencies..."
-brew install fmt libid3tag faad2 expat libmad libsndfile
-brew uninstall --ignore-dependencies flac
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/flac-143.tar.bz2 | tar jxvf - -C /opt/homebrew/Cellar
-brew link flac@1.4.3
-ln -s /opt/homebrew/opt/flac@1.4.3 /opt/homebrew/opt/flac
-ln -s /opt/homebrew/opt/flac@1.4.3/lib/libFLAC.12.dylib /opt/homebrew/opt/flac@1.4.3/lib/libFLAC.14.dylib
+brew install fmt libid3tag faad2 expat mpg123 libsndfile flac
+# brew uninstall --ignore-dependencies flac
+# curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/flac-143.tar.bz2 | tar jxvf - -C /opt/homebrew/Cellar
+# brew link flac@1.4.3
+# ln -s /opt/homebrew/opt/flac@1.4.3 /opt/homebrew/opt/flac
+# ln -s /opt/homebrew/opt/flac@1.4.3/lib/libFLAC.12.dylib /opt/homebrew/opt/flac@1.4.3/lib/libFLAC.14.dylib
 
 echo "🎵 Installing MPD ..."
 sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/$version -o /Applications/mpd
