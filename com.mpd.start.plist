@@ -2,10 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>KeepAlive</key>
-	<true/>
 	<key>Label</key>
-	<string>com.mpd.start</string>
+		<string>com.mpd.start</string>
 	<key>LimitLoadToSessionType</key>
 	<array>
 		<string>Aqua</string>
@@ -15,7 +13,7 @@
 		<string>System</string>
 	</array>
 	<key>ProcessType</key>
-	<string>Interactive</string>
+		<string>Interactive</string>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/Applications/mpd</string>
@@ -23,9 +21,13 @@
 	</array>
 	<key>Nice</key>
 		<integer>-20</integer>
+	<key>LowPriorityIO</key>
+		<false/>
+	<key>KeepAlive</key>
+		<true/>
 	<key>RunAtLoad</key>
-	<true/>
+		<true/>
 	<key>WorkingDirectory</key>
-	<string>HOME/.mpd</string>
+		<string>HOME/.mpd</string>
 </dict>
 </plist>
