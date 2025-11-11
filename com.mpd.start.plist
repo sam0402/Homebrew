@@ -15,7 +15,7 @@
 		<string>System</string>
 	</array>
 	<key>ProcessType</key>
-	<string>Interactive</string>
+	<string>Background</string>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/Applications/mpd</string>
@@ -26,6 +26,6 @@
 	<key>RunAtLoad</key>
 	<true/>
 	<key>WorkingDirectory</key>
-	<string>/opt/homebrew</string>
+	<string>HOME/.mpd</string>
 </dict>
 </plist>

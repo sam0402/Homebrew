@@ -45,6 +45,7 @@ fi
 echo "🧩 Installing LaunchAgent for auto-start..."
 mkdir -p ~/Library/LaunchAgents
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/com.mpd.start.plist -o ~/Library/LaunchAgents/com.mpd.start.plist
+sed -i '' "s|HOME|$HOME|g" ~/Library/LaunchAgents/com.mpd.start.plist
 
 echo "🚀 Starting MPD service..."
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.mpd.start.plist || true
