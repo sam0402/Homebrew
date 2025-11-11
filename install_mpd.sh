@@ -4,8 +4,8 @@ set -e  # stop on error
 echo "🎵 MPD Installation"
 echo "============================================="
 echo "Select installation version:"
-echo "1) MPD 0.23.17 (wav, aiff, w64, flac; Radio: aac)"
-echo "2) MPD +FLAC 0.23.17 (Radio: +mp3, ogg)"
+echo "1) MPD 0.23.17 (wav, aiff, w64, flac; Radio: aac, mp3)"
+echo "2) MPD +FLAC 0.23.17 (Radio: +ogg)"
 read -p "Enter choice [1-2]: " choice
 
 version="mpd-0.23.17"
@@ -28,12 +28,7 @@ else
 fi
 
 echo "🍺 Installing MPD dependencies..."
-brew install fmt libid3tag faad2 expat mad libsndfile flac
-# brew uninstall --ignore-dependencies flac
-# curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/flac-143.tar.bz2 | tar jxvf - -C /opt/homebrew/Cellar
-# brew link flac@1.4.3
-# ln -s /opt/homebrew/opt/flac@1.4.3 /opt/homebrew/opt/flac
-# ln -s /opt/homebrew/opt/flac@1.4.3/lib/libFLAC.12.dylib /opt/homebrew/opt/flac@1.4.3/lib/libFLAC.14.dylib
+brew install fmt libid3tag expat faad2 libsndfile flac mad
 
 echo "🎵 Installing MPD ..."
 sudo curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/$version -o /Applications/mpd
