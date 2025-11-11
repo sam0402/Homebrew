@@ -15,7 +15,7 @@
 		<string>System</string>
 	</array>
 	<key>ProcessType</key>
-	<string>Background</string>
+	<string>Interactive</string>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/Applications/mpd</string>
