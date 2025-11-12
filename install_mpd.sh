@@ -7,7 +7,7 @@ echo "Select installation version:"
 echo "1) MPD 0.23.17 (wav, aiff, w64, flac; Radio: aac, mp3)"
 echo "2) MPD +DSD 0.23.17 (+dsd; Radio: flac only)"
 echo "3) MPD +Radio 0.23.17 (Radio: +ogg/flac,opus)"
-read -p "Enter choice [1-2]: " choice
+read -p "Enter choice [1-3]: " choice
 
 version="mpd-0.23.17"
 if [[ "$choice" == "1" ]]; then
