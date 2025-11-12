@@ -5,7 +5,8 @@ echo "🎵 MPD Installation"
 echo "============================================="
 echo "Select installation version:"
 echo "1) MPD 0.23.17 (wav, aiff, w64, flac; Radio: aac, mp3)"
-echo "2) MPD +FLAC 0.23.17 (Radio: +ogg/flac,opus)"
+echo "2) MPD +DSD 0.23.17 (+dsd; Radio: flac only)"
+echo "3) MPD +Radio 0.23.17 (Radio: +ogg/flac,opus)"
 read -p "Enter choice [1-2]: " choice
 
 version="mpd-0.23.17"
@@ -13,8 +14,11 @@ if [[ "$choice" == "1" ]]; then
     echo "➡️ Installing MPD 0.23.17..."
     version="mpd-0.23.17"
 elif [[ "$choice" == "2" ]]; then
-    echo "➡️ Installing MPD-flac 0.23.17 ..."
-    version="mpd-flac-0.23.17"
+    echo "➡️ Installing MPD-DSD 0.23.17 ..."
+    version="mpd-dsd-0.23.17"
+elif [[ "$choice" == "3" ]]; then
+    echo "➡️ Installing MPD-Radio 0.23.17 ..."
+    version="mpd-radio-0.23.17"
 else
     echo "➡️ Installing MPD 0.23.17..."
     version="mpd-0.23.17"
