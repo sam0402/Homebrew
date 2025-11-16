@@ -20,8 +20,8 @@ curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/up
 sed -i '' "s|HOME|$HOME|g" $HOME/Library/LaunchAgents/com.upmpdcli.start.plist
 
 echo "🚀 Starting upmpdcli service..."
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.upmpdcli.start.plist || true
-launchctl enable gui/$(id -u)/com.mpupmpdclid.start || true
+launchctl bootstrap gui/$(id -u) $HOME/Library/LaunchAgents/com.upmpdcli.start.plist || true
+launchctl enable gui/$(id -u)/com.upmpdcli.start || true
 launchctl kickstart -k gui/$(id -u)/com.upmpdcli.start || true
 
 echo "✅ upmpdcli installation complete!"
