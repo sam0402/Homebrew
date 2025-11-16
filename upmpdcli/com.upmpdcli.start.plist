@@ -13,7 +13,7 @@
 		<string>Background</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/opt/homebrew/bin</string>
+		<string>/opt/homebrew/bin/upmpdcli</string>
 		<string>-c</string>
 		<string>HOME/.mpd/upmpdcli.conf</string>
 	</array>
