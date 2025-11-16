@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e  # stop on error
+
+echo "🍺 Installing upmpdclit dependencies..."
+brew install libmpdclient expat libmicrohttpd jsoncpp
+pip3 install requests bottle mutagen waitress
+
+echo "🎵 Installing upmpdcli ..."
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli-1.9.7.tar.gz | tar -xzvf - -C /opt
+
+echo "📁 Creating upmpdcli configuration folder..."
+
+if ! [ -f $HOME/.mpd/upmpdcli.conf ]; then
+    echo "⚙️ Creating $HOME/.mpd/upmpdcli.conf..."
+    cp /opt/homebrew/etc/upmpdcli.conf $HOME/.mpd/upmpdcli.conf
+fi
+
+echo "🧩 Installing LaunchAgent for auto-start..."
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/com.upmpdcli.start.plist -o ~/Library/LaunchAgents/com.upmpdcli.start.plist
+sed -i '' "s|HOME|$HOME|g" $HOME/Library/LaunchAgents/com.upmpdcli.start.plist
+
+echo "🚀 Starting upmpdcli service..."
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.upmpdcli.start.plist || true
+launchctl enable gui/$(id -u)/com.mpupmpdclid.start || true
+launchctl kickstart -k gui/$(id -u)/com.upmpdcli.start || true
+
+echo "✅ upmpdcli installation complete!"
