@@ -6,7 +6,7 @@ brew install libmpdclient expat libmicrohttpd jsoncpp
 pip3 install requests bottle mutagen waitress
 
 echo "🎵 Installing upmpdcli ..."
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli-1.9.7.tar.gz | tar -xzvf - -C /opt
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli-1.9.7.tar.gz | tar -xzf - -C /opt
 
 echo "📁 Creating upmpdcli configuration folder..."
 
