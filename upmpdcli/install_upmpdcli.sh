@@ -3,7 +3,9 @@ set -e  # stop on error
 
 echo "🍺 Installing upmpdclit dependencies..."
 brew install libmpdclient expat libmicrohttpd jsoncpp
-pip3 install requests bottle mutagen waitress
+pip3 install requests bottle mutagen waitress pyradios
+# python-dateutil for BBC Sounds plugin
+# pip3 install python-dateutil
 
 echo "🎵 Installing upmpdcli ..."
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli-1.9.7.tar.gz | tar -xzf - -C /opt
@@ -12,7 +14,7 @@ echo "📁 Creating upmpdcli configuration folder..."
 
 if ! [ -f $HOME/.mpd/upmpdcli.conf ]; then
     echo "⚙️ Creating $HOME/.mpd/upmpdcli.conf..."
-    cp /opt/homebrew/etc/upmpdcli.conf $HOME/.mpd/upmpdcli.conf
+    curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli.conf -o $HOME/.mpd/upmpdcli.conf
 fi
 
 echo "🧩 Installing LaunchAgent for auto-start..."
