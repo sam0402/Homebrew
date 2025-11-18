@@ -24,8 +24,9 @@ fi
 echo "🎵 Installing upmpdcli ..."
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli-1.9.7.tar.gz | tar -xzf - -C /opt
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli.conf-xml -o /opt/homebrew/share/upmpdcli/upmpdcli.conf-xml
-echo "📁 Creating upmpdcli configuration folder..."
+ln -sf /opt/homebrew/bin/upmpdcli-config.app/Contents/MacOS/upmpdcli-config /opt/homebrew/bin/upmpdcli-config
 
+echo "📁 Creating upmpdcli configuration folder..."
 if ! [ -f $HOME/.mpd/upmpdcli.conf ]; then
     echo "⚙️ Creating $HOME/.mpd/upmpdcli.conf..."
     curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli.conf -o $HOME/.mpd/upmpdcli.conf
