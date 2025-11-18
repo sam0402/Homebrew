@@ -7,9 +7,23 @@ pip3 install requests bottle mutagen waitress pyradios
 # python-dateutil for BBC Sounds plugin
 # pip3 install python-dateutil
 
+if [ -n "$ZSH_VERSION" ]; then
+    read "ans?📦 Install TIDAL support (tidalapi)? (Y/n): "
+else
+    read -p "📦 Install TIDAL support (tidalapi)? (Y/n): " ans
+fi
+
+ans=${ans:-Y}
+if [[ "$ans" =~ ^[Yy]$ ]]; then
+    echo "🎧 Installing tidalapi..."
+    pip3 install tidalapi
+else
+    echo "⏭️ Skipping tidalapi installation..."
+fi
+
 echo "🎵 Installing upmpdcli ..."
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli-1.9.7.tar.gz | tar -xzf - -C /opt
-
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli.conf-xml -o /opt/homebrew/share/upmpdcli/upmpdcli.conf-xml
 echo "📁 Creating upmpdcli configuration folder..."
 
 if ! [ -f $HOME/.mpd/upmpdcli.conf ]; then
