@@ -20,6 +20,7 @@ fi
 echo "🗑 Removing upmpdcli extracted files..."
 if [[ -d "$OPT_UPMPDCLI" ]]; then
     rm -rf "$OPT_UPMPDCLI"
+    rm -rf $HOME/Applications/upmpdcli-config.app
     echo "  ✔ Removed $OPT_UPMPDCLI"
 fi
 
