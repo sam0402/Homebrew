@@ -1,6 +1,8 @@
 #!/bin/bash
 # Install dependencies
-brew install ffmpeg sqlite
+brew install sqlite
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/ffmpeg-8.0.1.tar.gz | tar xf - -C /opt/homebrew/Cellar
+brew link ffmpeg
 pip3 install python-mpd2
 
 # Install blissify and its components
