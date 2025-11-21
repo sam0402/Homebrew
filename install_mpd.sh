@@ -38,7 +38,7 @@ fi
 echo "🍺 Installing MPD dependencies..."
 brew install fmt libid3tag expat faad2 libsndfile flac mad
 
-if [ ${version%-*} == "mpd-ffmpeg" ]; then
+if [ ${version%-*} = "mpd-ffmpeg" ]; then
     curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/ffmpeg-8.0.1.tar.gz | tar xf - -C /opt/homebrew/Cellar
     brew link ffmpeg
 fi
