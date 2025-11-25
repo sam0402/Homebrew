@@ -23,8 +23,22 @@ fi
 
 echo "🎵 Installing upmpdcli ..."
 curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli-1.9.7.tar.gz | tar -xzf - -C /opt
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli.conf-xml -o /opt/homebrew/share/upmpdcli/upmpdcli.conf-xml
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli-config.tar.gz | tar -xzf - -C $HOME/Applications
+
+if [ -n "$ZSH_VERSION" ]; then
+    read "ans?📦 Install config tool? (Y/n): "
+else
+    read -p "📦 Install config tool? (Y/n): " ans
+fi
+
+ans=${ans:-Y}
+if [[ "$ans" =~ ^[Yy]$ ]]; then
+    echo "🎧 Installing config tool..."
+    brew install qwt
+    curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli.conf-xml -o /opt/homebrew/share/upmpdcli/upmpdcli.conf-xml
+    curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/upmpdcli/upmpdcli-config.tar.gz | tar -xzf - -C $HOME/Applications
+else
+    echo "⏭️ Skipping config tool installation..."
+fi
 
 echo "📁 Creating upmpdcli configuration folder..."
 if ! [ -f $HOME/.mpd/upmpdcli.conf ]; then

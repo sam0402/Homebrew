@@ -31,8 +31,8 @@ if [[ -f "$BREW_CONF" ]]; then
 fi
 
 echo "🍺 Uninstalling Homebrew dependencies & Python pip3 modules..."
-brew uninstall libmicrohttpd jsoncpp
-pip3 uninstall -y requests bottle mutagen waitress
+brew uninstall libmicrohttpd jsoncpp qwt
+pip3 uninstall -y requests bottle mutagen waitress pyradios python-dateutil tidalapi
 
 echo "❗ Keeping other Homebrew packages (libmpdclient expat)"
 echo "✨ upmpdcli has been completely uninstalled."
