@@ -1106,7 +1106,7 @@ do_tag ()
 				TRACKARTIST=$(echo $TRACKARTIST | sed "s/'/‘/g")
 				TRACKCOMPOSER=$(echo $TRACKCOMPOSER | sed "s/'/‘/g")
 				COMMENT=$(echo $COMMENT | sed "s/'/‘/g")
-				run_command "tagtrack-$OUTPUT-$1" nice $ENCNICE "$KID3CLI" \
+				run_command "tagtrack-$OUTPUT-$1" nice $ENCNICE "$KID3CLI" -c "tag 3" \
 						-c "set title '$TRACKNAME'" -c "set artist '$TRACKARTIST'" -c "set album '$DALBUM'" \
 						-c "set composer '$TRACKCOMPOSER'" -c "set 'Disc Number' '$DISCNUMBER'" -c "set genre '$CDGENRE'" \
 						-c "set 'Track Number' '$((10#${TRACKNUM:-$1}))'" -c "set date '$CDYEAR'" -c "set comment '$COMMENT'" \
