@@ -3,15 +3,19 @@ set -e  # stop on error
 
 echo "🎵 MPD Installation"
 echo "============================================="
-echo "Select installation version:"
+echo "Select installation version (default 1):"
+echo "0) MPD Ultra-light 0.23.17 (audio file only)"
 echo "1) MPD 0.23.17 (wav, aiff, w64, flac; Radio: aac, mp3)"
 echo "2) MPD +DSD 0.23.17 (+dsd; Radio: flac only)"
 echo "3) MPD +Radio 0.23.17 (Radio: +ogg/flac,opus)"
 echo "4) MPD All 0.23.17 (All Format/Radio)"
-read -p "Enter choice [1-4]: " choice
+read -p "Enter choice [0-4]: " choice
 
 version="mpd-0.23.17"
-if [[ "$choice" == "1" ]]; then
+if [[ "$choice" == "0" ]]; then
+    echo "➡️ Installing MPD Ultra-light 0.23.17..."
+    version="mpd-ul-0.23.17"
+elif [[ "$choice" == "1" ]]; then
     echo "➡️ Installing MPD 0.23.17..."
     version="mpd-0.23.17"
 elif [[ "$choice" == "2" ]]; then
