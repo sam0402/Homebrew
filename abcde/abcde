@@ -1106,11 +1106,11 @@ do_tag ()
 				TRACKARTIST=$(echo $TRACKARTIST | sed "s/'/‘/g")
 				TRACKCOMPOSER=$(echo $TRACKCOMPOSER | sed "s/'/‘/g")
 				COMMENT=$(echo $COMMENT | sed "s/'/‘/g")
-				run_command "tagtrack-$OUTPUT-$1" nice $ENCNICE "$KID3CLI" \
-						-c "set title '$TRACKNAME'" -c "set artist '$TRACKARTIST'" -c "set album '$DALBUM'" \
-						-c "set composer '$TRACKCOMPOSER'" -c "set 'Disc Number' '$DISCNUMBER'" -c "set genre '$CDGENRE'" \
-						-c "set 'Track Number' '$((10#${TRACKNUM:-$1}))'" -c "set date '$CDYEAR'" -c "set comment '$COMMENT'" \
-						"${ABCDETEMPDIR}/track$1.wav"
+				run_command "tagtrack-$OUTPUT-$1" nice $ENCNICE "$KID3CLI" "${ABCDETEMPDIR}/track$1.wav" \
+						-c "set title '$TRACKNAME'" -c "set artist '$TRACKARTIST'" -c "set album '$DALBUM'" -c "set albumartist '$DARTIST'" \
+						-c "set genre '$CDGENRE'" -c "set 'Disc Number' '$DISCNUMBER'" -c "set 'Track Number' '$((10#${TRACKNUM:-$1}))'" \
+						-c "set date '$CDYEAR'" -c "set comment '$COMMENT'" \
+						-c "set composer '$TRACKCOMPOSER'" -c "save"
 			fi
 			;;
 		esac
