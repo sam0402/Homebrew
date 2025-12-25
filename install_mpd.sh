@@ -4,11 +4,11 @@ set -e  # stop on error
 echo "🎵 MPD Installation"
 echo "============================================="
 echo "Select installation version (default 1):"
-echo "0) MPD Ultra-light 0.23.17 (audio file only)"
-echo "1) MPD 0.23.17 (wav, aiff, w64, flac; Radio: aac, mp3)"
-echo "2) MPD +DSD 0.23.17 (+dsd; Radio: flac only)"
-echo "3) MPD +Radio 0.23.17 (Radio: +ogg/flac,opus)"
-echo "4) MPD All 0.23.17 (All Format/Radio)"
+echo "0) MPD Ultra-light .2317 (wav/aiff, flac file only)"
+echo "1) MPD .2317 (wav/aiff; Radio: flac, mp3)"
+echo "2) MPD +DSD .2317 (+dsd; Radio: flac only)"
+echo "3) MPD +Radio .2317 (Radio: +aac, ogg ,opus)"
+echo "4) MPD All .2317 (All Format/Radio)"
 read -p "Enter choice [0-4]: " choice
 
 version="mpd-0.23.17"
@@ -40,9 +40,9 @@ else
 fi
 
 echo "🍺 Installing MPD dependencies..."
-curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/libsndfile-1.2.2-2.tar.gz | tar xf - -C /opt/homebrew/Cellar
-brew link libsndfile
-brew install fmt libid3tag expat faad2 flac mad libvorbis opus
+# curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/libsndfile-1.2.2-2.tar.gz | tar xf - -C /opt/homebrew/Cellar
+# brew link libsndfile
+brew install fmt libid3tag expat faad2 flac mpg123 libvorbis opus
 
 if [ ${version%-*} = "mpd-ffmpeg" ]; then
     curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/ffmpeg-8.0.1.tar.gz | tar xf - -C /opt/homebrew/Cellar
