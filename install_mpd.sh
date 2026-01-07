@@ -43,7 +43,11 @@ echo "🍺 Installing MPD dependencies..."
 # curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/libsndfile-1.2.2-2.tar.gz | tar xf - -C /opt/homebrew/Cellar
 # brew link libsndfile
 brew install fmt libid3tag expat faad2 flac mad opus
-
+curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/flac-143.tar.bz2 | tar jxf - -C /opt/homebrew/Cellar
+if [ -f /opt/homebrew/Cellar/flac@1.4.3/lib/libFLAC.12.dylib ]; then
+    rm -f /opt/homebrew/Cellar/flac/1.5.0/lib/libFLAC.14.dylib
+    ln -s /opt/homebrew/Cellar/flac@1.4.3/lib/libFLAC.12.dylib /opt/homebrew/Cellar/flac/1.5.0/lib/libFLAC.14.dylib
+if
 if [ ${version%-*} = "mpd-ffmpeg" ]; then
     curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/ffmpeg-8.0.1.tar.gz | tar xf - -C /opt/homebrew/Cellar
     brew link ffmpeg
