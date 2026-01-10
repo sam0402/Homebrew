@@ -47,7 +47,7 @@ curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/fl
 if [ -f /opt/homebrew/Cellar/flac@1.4.3/lib/libFLAC.12.dylib ]; then
     rm -f /opt/homebrew/Cellar/flac/1.5.0/lib/libFLAC.14.dylib
     ln -s /opt/homebrew/Cellar/flac@1.4.3/1.4.3/lib/libFLAC.12.dylib /opt/homebrew/Cellar/flac/1.5.0/lib/libFLAC.14.dylib
-if
+fi
 if [ ${version%-*} = "mpd-ffmpeg" ]; then
     curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/ffmpeg-8.0.1.tar.gz | tar xf - -C /opt/homebrew/Cellar
     brew link ffmpeg
