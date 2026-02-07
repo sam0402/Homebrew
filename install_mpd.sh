@@ -62,7 +62,7 @@ mkdir -p ~/.mpd/playlists
 
 if ! [ -f ~/.mpd/mpd.conf ]; then
     echo "⚙️ Downloading mpd.conf..."
-    curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd-streamp3/mpd.conf -o ~/.mpd/mpd.conf
+    curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd.conf -o ~/.mpd/mpd.conf
 fi
 
 echo "🧩 Installing LaunchAgent for auto-start..."
