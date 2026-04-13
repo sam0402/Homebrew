@@ -1,0 +1,1 @@
+Squeezelite for macOS
