@@ -11,7 +11,7 @@
     <string>Squeezelite</string>
     <string>-o</string>
     <string>default</string>
-    <string>-S</string>
+    <string>-s</string>
     <string>127.0.0.1</string>
   </array>
   <key>RunAtLoad</key>
