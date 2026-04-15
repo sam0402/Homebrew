@@ -6,11 +6,13 @@
   <string>com.squeezelite</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/opt/homebrew/bin/squeezelite</string>
+    <string>/Applications/squeezelite</string>
     <string>-n</string>
     <string>Squeezelite</string>
     <string>-o</string>
     <string>default</string>
+    <string>-S</string>
+    <string>127.0.0.1</string>
   </array>
   <key>RunAtLoad</key>
   <true/>
