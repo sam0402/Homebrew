@@ -13,6 +13,8 @@
     <string>default</string>
     <string>-s</string>
     <string>127.0.0.1</string>
+    <string>-c</string>
+    <string>pcm,flac</string>
   </array>
   <key>RunAtLoad</key>
   <true/>
