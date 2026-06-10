@@ -9,7 +9,8 @@ echo "1) MPD .2317 (wav/aiff; Radio: flac, mp3)"
 echo "2) MPD +DSD .2317 (+dsd; Radio: flac only)"
 echo "3) MPD +Radio .2317 (Radio: +aac, ogg ,opus)"
 echo "4) MPD All .2317 (All Format/Radio)"
-read -p "Enter choice [0-4]: " choice
+echo "5) MPD Slim .2317 (As select 1 with Slim output)"
+read -p "Enter choice [0-5]: " choice
 
 version="mpd-0.23.17"
 if [[ "$choice" == "0" ]]; then
@@ -27,6 +28,9 @@ elif [[ "$choice" == "3" ]]; then
 elif [[ "$choice" == "4" ]]; then
     echo "➡️ Installing MPD-FFmpeg 0.23.17..."
     version="mpd-ffmpeg-0.23.17"
+elif [[ "$choice" == "5" ]]; then
+    echo "➡️ Installing MPD-Slim 0.23.17..."
+    version="mpd-slim-0.23.17"
 else
     echo "➡️ Installing MPD 0.23.17..."
     version="mpd-0.23.17"
