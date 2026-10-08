@@ -4,6 +4,16 @@
 <dict>
   <key>Label</key>
   <string>com.squeezelite</string>
+	<key>LimitLoadToSessionType</key>
+	<array>
+		<string>Aqua</string>
+		<string>Background</string>
+		<string>LoginWindow</string>
+		<string>StandardIO</string>
+		<string>System</string>
+	</array>
+	<key>ProcessType</key>
+		<string>Interactive</string>
   <key>ProgramArguments</key>
   <array>
     <string>/Applications/squeezelite</string>
@@ -16,9 +26,13 @@
     <string>-c</string>
     <string>pcm,flac</string>
   </array>
-  <key>RunAtLoad</key>
-  <true/>
-  <key>KeepAlive</key>
-  <true/>
+	<key>Nice</key>
+		<integer>-20</integer>
+	<key>LowPriorityIO</key>
+		<false/>
+	<key>KeepAlive</key>
+		<true/>
+	<key>RunAtLoad</key>
+		<true/>
 </dict>
 </plist>
