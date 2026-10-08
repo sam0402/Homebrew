@@ -10,8 +10,8 @@ echo "2) MPD +DSD .2317 (+dsd; Radio: flac only)"
 echo "3) MPD +Radio .2317 (Radio: +aac, ogg ,opus)"
 echo "4) MPD All .2317 (All Format/Radio)"
 echo "5) MPD Pcmnet .2317 (As select 1 with Pcmnet output)"
-echo "6 MPD Slim .2317 (As select 1 with Slim output)"
-read -p "Enter choice [0-5]: " choice
+echo "6) MPD Slim .2317 (As select 1 with Slim output)"
+read -p "Enter choice [0-6]: " choice
 
 version="mpd-0.23.17"
 if [[ "$choice" == "0" ]]; then
