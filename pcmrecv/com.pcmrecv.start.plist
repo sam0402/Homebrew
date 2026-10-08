@@ -3,20 +3,29 @@
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.pcmrecv</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>/Applications/pcmrecv</string>
-    <string>-o</string>
-    <string>default</string>
-    <string>-s</string>
-    <string>127.0.0.1</string>
-    <string>-a</string>
-    <string>:4::1</string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-  <key>KeepAlive</key>
-  <true/>
+  <string>com.pcmrecv.start</string>
+	<key>LimitLoadToSessionType</key>
+	<array>
+		<string>Aqua</string>
+		<string>Background</string>
+		<string>LoginWindow</string>
+		<string>StandardIO</string>
+		<string>System</string>
+	</array>
+	<key>ProcessType</key>
+		<string>Interactive</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Applications/mpd</string>
+		<string>--no-daemon</string>
+	</array>
+	<key>Nice</key>
+		<integer>-20</integer>
+	<key>LowPriorityIO</key>
+		<false/>
+	<key>KeepAlive</key>
+		<true/>
+	<key>RunAtLoad</key>
+		<true/>
 </dict>
 </plist>
