@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.pcmrecv</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Applications/pcmrecv</string>
+    <string>-o</string>
+    <string>default</string>
+    <string>-s</string>
+    <string>127.0.0.1</string>
+    <string>-a</string>
+    <string>:4::1</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+</dict>
+</plist>
