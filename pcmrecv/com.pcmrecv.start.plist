@@ -14,11 +14,18 @@
 	</array>
 	<key>ProcessType</key>
 		<string>Interactive</string>
-	<key>ProgramArguments</key>
-	<array>
-		<string>/Applications/mpd</string>
-		<string>--no-daemon</string>
-	</array>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Applications/pcmrecv</string>
+    <string>-o</string>
+    <string>default</string>
+    <string>-s</string>
+    <string>127.0.0.1</string>
+    <string>-a</string>
+    <string>:4::1</string>
+    <string>-b</string>
+    <string>128:128</string>
+  </array>
 	<key>Nice</key>
 		<integer>-20</integer>
 	<key>LowPriorityIO</key>
