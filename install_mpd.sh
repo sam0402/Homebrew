@@ -68,6 +68,11 @@ sudo chmod +x /Applications/mpd
 echo "📁 Creating MPD configuration folder..."
 mkdir -p ~/.mpd/playlists
 
+if [[ "$choice" == "5" ]]; then
+    echo "⚙️ Downloading mpd_pcmnet.conf..."
+    curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/pcmrecv/mpd-pcmnet.conf -o ~/.mpd/mpd.conf
+fi
+
 if ! [ -f ~/.mpd/mpd.conf ]; then
     echo "⚙️ Downloading mpd.conf..."
     curl -fsSL https://raw.githubusercontent.com/sam0402/Homebrew/refs/heads/main/mpd.conf -o ~/.mpd/mpd.conf
