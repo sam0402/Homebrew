@@ -79,7 +79,7 @@ if [[ "$choice" == "5" ]] && ! grep -q "pcmnet" ~/.mpd/mpd.conf; then
 audio_output {\
 	type "pcmnet"\
 	name "PcmnetLocal"\
-	ip "127.0.0.1"\
+	host "127.0.0.1"\
 	port "19090"\
 	mixer_type "null"\
 	# format "*:32:*"\
